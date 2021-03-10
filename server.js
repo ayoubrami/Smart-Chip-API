@@ -12,10 +12,10 @@ const image = require('./controllers/image');
 const postgresDB=knex({
     client : 'pg',
     connection : {
-        host : '127.0.0.1',
-        user : 'ayoub',
-        password : '304780',
-        database : 'smart-chip-db'
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+          rejectUnauthorized: false
+        }
     }
 });
 
